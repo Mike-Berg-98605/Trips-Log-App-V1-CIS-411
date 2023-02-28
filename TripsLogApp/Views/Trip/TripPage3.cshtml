@@ -1,0 +1,30 @@
+﻿@model TripViewModel
+@{
+    ViewBag.Title = $"Add things to do in {Model.TripDetail.Destination}";
+}
+@section scripts {
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/
+                       jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Add">
+    <input type="hidden" asp-for="PageNumber" />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <input asp-for="TripDetail.FirstThingToDo" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <input asp-for="TripDetail.SecondThingToDo" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <input asp-for="TripDetail.ThirdThingToDo" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
